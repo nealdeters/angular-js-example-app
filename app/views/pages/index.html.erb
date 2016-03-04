@@ -1,0 +1,44 @@
+<h1>Todo List</h1>
+<div ng-app="app">
+  <!-- {{ 1 + 1 }} -->
+  <div ng-controller="stuffCtrl">
+    
+    <input ng-model="newTask">
+    <button ng-click="addTask(newTask)">Add Task</button>
+    <div id="tasks">
+      <!-- <h3>{{ list }}</h3> -->
+      <ul>
+        <li ng-repeat="task in tasks track by $index" ng-click="toggle(task)">
+          <span ng-class="{strike: task.completed}">{{ task.text }}</span>
+        </li>
+      <ul>
+    </div>
+
+    <span>Incompleted Tasks: {{ countIncompletedTasks(tasks) }} </span>
+    <br>
+    <button ng-click="clearCompleted()">Clear Completed Tasks</button>
+    
+
+    <!-- <div id="reviews">
+      <h3>AngularJS Reviews</h3>
+      <ul>
+        <li ng-repeat="review in reviews track by $index" ng-click="removeReview($index)">
+          Review: {{ review.text }}
+          <br>
+          Reviewer: {{ review.reviewer }}
+          <br>
+          Rating: {{ review.rating }}
+          <br>
+          <input ng-model="review.text">
+        </li>
+      </ul>
+
+      Review: <input ng-model="newReviewText">
+      Reviwer: <input ng-model="newReviewReviewer">
+      Rating: <input ng-model="newReviewRating">
+      <button ng-click="addReview(newReviewText, newReviewReviewer, newReviewRating)">Add Review</button>
+
+    </div> -->
+
+  </div>
+</div>
